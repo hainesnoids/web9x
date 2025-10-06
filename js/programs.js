@@ -9,7 +9,7 @@ let programs = {
     },
     'jellyfin': {
         name: 'Jellyfin',
-        content: 'https://jellyfin.ws4k.net/web',
+        content: 'https://jellyfin.ws4k.net',
         icon: '/programs/jellyfin/icon.png'
     },
     'slope': {
