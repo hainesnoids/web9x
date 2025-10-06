@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web9x</title>
+    <link rel="stylesheet" href="css/win98.css">
+    <link rel="stylesheet" href="css/window.css">
+    <link rel="stylesheet" href="css/root.css">
+    <script src="js/window.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/programs.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="desktop-root">
+            <div class="desktop">
+                <button class="desktop-icon">
+                    <img src="programs/jellyfin/icon.png">
+                    <span>Jellyfin</span>
+                </button>
+                <button class="desktop-icon">
+                    <img src="programs/slope/icon.png">
+                    <span>Slope</span>
+                </button>
+                <button class="desktop-icon">
+                    <img src="programs/pony/icon.gif">
+                    <span>Poney Jockey</span>
+                </button>
+            </div>
+            <div class="window-root"></div>
+        </div>
+        <div class="taskbar">
+            <button class="start" onclick="run('run');document.querySelector('#run-input').focus();">
+                <img class="task-image" src="res/Josh.png" alt="">
+                <b>Start</b>
+            </button>
+            <div class="tasks">
+
+            </div>
+            <div class="system-tray">
+                <span id="clock">14:51</span>
+            </div>
+        </div>
+        <div class="startmenu"></div>
+    </div>
+<template id="window-template"><div class="window">
+    <div class="titlebar title-bar">
+        <div class="left-anchor">
+            <!--<button class="shade">
+                <img alt="Shade" class="icon" src="icons/shade-off.svg"/>
+            </button>-->
+            <img class="window-icon" src="" alt="">
+            <span class="title title-bar-text">Window</span>
+        </div>
+        <div class="right-anchor title-bar-controls">
+            <button aria-label="Minimize" class="minimize">
+            </button>
+            <button aria-label="Maximize" class="maximiz">
+            </button>
+            <button aria-label="Close" class="close">
+            </button>
+        </div>
+    </div>
+    <div class="resize-handles">
+        <button class="resize-handle resize-handle-n">
+        </button>
+        <button class="resize-handle resize-handle-ne">
+        </button>
+        <button class="resize-handle resize-handle-e">
+        </button>
+        <button class="resize-handle resize-handle-se">
+        </button>
+        <button class="resize-handle resize-handle-s">
+        </button>
+        <button class="resize-handle resize-handle-sw">
+        </button>
+        <button class="resize-handle resize-handle-w">
+        </button>
+        <button class="resize-handle resize-handle-nw">
+        </button>
+    </div>
+    <div class="content window-body">
+
+    </div>
+</div></template>
+</body>
+</html>

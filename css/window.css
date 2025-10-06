@@ -1,0 +1,82 @@
+.window .resize-handle {
+    position: absolute;
+    width:16px;
+    height:16px;
+    z-index:4;
+    background:none;
+    border:none;
+    min-width:unset;
+    min-height:unset;
+    padding:0;
+    margin:0;
+    box-shadow:unset!important;
+    outline:unset!important
+}
+.window .resize-handle-n {
+    cursor: ns-resize;
+    left: 0;
+    top: -16px;
+    width: 100%;
+}
+.window .resize-handle-ne {
+    cursor: nesw-resize;
+    right: -16px;
+    top: -16px;
+}
+.window .resize-handle-e {
+    cursor: ew-resize;
+    right: -16px;
+    top: 0;
+    height: 100%;
+}
+.window .resize-handle-se {
+    cursor: nwse-resize;
+    right: -16px;
+    bottom: -16px;
+}
+.window .resize-handle-s {
+    cursor: ns-resize;
+    left: 0;
+    bottom: -16px;
+    width: 100%;
+}
+.window .resize-handle-sw {
+    cursor: nesw-resize;
+    left: -16px;
+    bottom: -16px;
+}
+.window .resize-handle-w {
+    cursor: ew-resize;
+    left: -16px;
+    top: 0;
+    height: 100%;
+}
+.window .resize-handle-nw {
+    cursor: nwse-resize;
+    left: -16px;
+    top: -16px;
+}
+.window.maximized {
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+    z-index: 2147483647;
+}
+.window-root {
+
+}
+.window[focus=""] {
+    z-index: 2147483646;
+}
+.window[state="minimized"] {
+    display: none;
+}
+.window.dragging .content {
+    pointer-events: none;
+}
+.window-transition-simulator {
+    position: absolute;
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+}
