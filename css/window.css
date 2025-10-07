@@ -1,3 +1,7 @@
+.window {
+    min-width: 100px;
+    min-height: 100px;
+}
 .window .resize-handle {
     position: absolute;
     width:16px;
@@ -79,4 +83,7 @@
     position: absolute;
     outline: 1px dotted #000;
     outline-offset: -4px;
+}
+.window:not([focus=""]) iframe {
+    pointer-events: none;
 }

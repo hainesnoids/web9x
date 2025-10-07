@@ -1,0 +1,77 @@
+.window:has(.pony) {
+  display: flex;
+  flex-direction: column;
+}
+.window-body:has(.pony) {
+  margin: 0;
+  height: 100%;
+}
+.pony {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.pony-content {
+  width: 100%;
+  background-color: #fff;
+  flex-grow: 1;
+}
+.pony-content-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.pony-tab-bar {
+  display: flex;
+  flex-direction: row;
+}
+.pony-nav-bar {
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  padding: 6px;
+  flex-grow: 1;
+}
+.pony .pony-url-input {
+  flex-grow: 1;
+  height: 24px;
+}
+.pony-go-button {
+  height: 24px;
+}
+.pony-loader {
+  background-color: #000;
+  box-shadow: inset -1px -1px #fff,inset 1px 1px grey,inset -2px -2px #dfdfdf,inset 2px 2px #0a0a0a;
+  box-sizing: border-box;
+  padding: 3px 4px;
+  width: 64px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pony.loading-page .pony-rainbow-dash {
+  animation: dashify-animation-frames 2.5s steps(14) infinite;
+}
+.pony-rainbow-dash {
+  aspect-ratio: 53 / 33;
+    width: auto;
+    height: 33px;
+    transform: scale(.8);
+    background-color: transparent;
+    border-radius: 0;
+    background-image: url("data:image/png;base64,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");
+    background-repeat: no-repeat;
+    animation: none;
+    background-position: 0 -528px;
+}
+
+@keyframes dashify-animation-frames {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 -462px;
+    }
+}
+
