@@ -65,6 +65,7 @@ function createWindow( title, content, uDim, icon, pid ) {
     } else if (String(content).startsWith('http')) { // iframe
         const contentFrame = document.createElement('iframe')
         contentFrame.classList.add('content-frame');
+        contentFrame.setAttribute('allowfullscreen', 'true');
         contentFrame.src = content.replaceAll('http://local/','');
         window.querySelector('.content').appendChild(contentFrame);
     } else if (typeof content === 'string') { // string
