@@ -156,7 +156,8 @@ input[type=submit]:disabled {
     font-weight:700;
     letter-spacing:0;
     margin-right:24px;
-    pointer-events:none
+    pointer-events:none;
+    user-select:none
 }
 .title-bar-controls {
     display:flex

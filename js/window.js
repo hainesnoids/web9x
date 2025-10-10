@@ -11,7 +11,7 @@ let processes = [],
     newPid = -1,
     newFocusLayer = 0;
 
-function createProgram( name, content, icon, uDim = {x:100,y:100,w:640,h:480}, id = '' ) {
+function createProgram( name, content, icon, uDim = {x:100,y:100,w:640,h:480,minw:0,minh:0,resize:true}, id = '', programData = {} ) {
     const pid = String(newPid + 1);
     newPid++;
     const window = createWindow(name, content, uDim, icon, pid);
@@ -57,7 +57,7 @@ function createWindow( title, content, uDim, icon, pid ) {
     if (icon) {
         window.querySelector('.window-icon').src = icon;
     }
-    if (pid) {
+    if (pid >= 0) {
         window.setAttribute('data-pid', pid);
     }
     if (content instanceof HTMLElement) { // element
@@ -161,7 +161,7 @@ function createWindow( title, content, uDim, icon, pid ) {
 
     // close button
     window.querySelector('.close').addEventListener("click", () => {
-        if (pid) {
+        if (pid >= 0) {
             killProcess(pid);
         } else {
             window.remove();
@@ -323,4 +323,13 @@ function renderProcesses() {
 
 function windowTransitionEffect(window, effectId) {
 
+}
+
+function setWindowTitleByPid(title, pid) {
+    const process = processes.filter((x) => x.pid === pid)[0];
+    if (process) {
+        process.name = title;
+        process.window.querySelector('.title-bar-text').innerText = title;
+    }
+    return !!process;
 }

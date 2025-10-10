@@ -2,10 +2,13 @@ function run(programId) {
     const programData = programs[programId];
     let program;
     if (programData) {
-        program = createProgram(programData.name, programData.content, programData.icon, programData.uDim, programId);
+        program = createProgram(programData.name, programData.content, programData.icon, programData.uDim, programId, programData);
     }
     if (programData.script) {
         const script = document.createElement('script');
+        if (programData.script_is_module) {
+            script.type = 'module';
+        }
         script.src = programData.script;
         program.window.appendChild(script);
     }

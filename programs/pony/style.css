@@ -51,7 +51,7 @@
   align-items: center;
 }
 .pony.loading-page .pony-rainbow-dash {
-  animation: dashify-animation-frames 2.5s steps(14) infinite;
+  animation: dashify-animation-frames 1.5s steps(14) infinite;
 }
 .pony-rainbow-dash {
   aspect-ratio: 53 / 33;

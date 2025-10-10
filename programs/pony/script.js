@@ -1,7 +1,10 @@
-document.querySelectorAll('.pony').forEach((browser) => {
+import * as sandstone from "./sandstone/sandstone.mjs";
+
+document.querySelectorAll('.pony').forEach(async (browser) => {
     if (browser.innerHTML === '<span>Awaiting Renderer</span>') { // uninitialized browser window
+        const browserPid = browser.getAttribute('data-pid');
         // create the nodes
-        console.log('Detected a pony window, creating content');
+        //console.log('Detected a pony window, creating content');
         browser.innerHTML = '';
         const browserTabBar = document.createElement('div');
         browserTabBar.classList.add('pony-tab-bar');
@@ -13,6 +16,7 @@ document.querySelectorAll('.pony').forEach((browser) => {
         browserURLInput.classList.add('pony-url-input');
         browserURLInput.type = 'text';
         browserURLInput.value = 'pony://newtab';
+        browserURLInput.placeholder = 'Search DuckDuckGo or type a URL';
         browserNavBar.appendChild(browserURLInput);
         
         const browserGoButton = document.createElement('button');
@@ -33,39 +37,64 @@ document.querySelectorAll('.pony').forEach((browser) => {
         
         const browserFrameWrap = document.createElement('div');
         browserFrameWrap.classList.add('pony-content');
-        const browserFrame = document.createElement('iframe');
-        browserFrame.classList.add('pony-content-frame');
-        browserFrame.setAttribute('allowfullscreen', 'true');
-        browserFrame.src = 'programs/pony/syswindows/newtab.html';
-        browserFrameWrap.appendChild(browserFrame);
         
         // send nodes to window
         browser.appendChild(browserTabBar);
         browser.appendChild(browserFrameWrap);
-        
-        // add events
-        function frameLoaded() {
-            browser.classList.remove('loading-page');
-        }
-        function frameLoading() {
-            browser.classList.add('loading-page');
-        }
-        function parseURL() {
+    
+        // sandstone-based rewrite
+        const proxyFrame = new sandstone.controller.ProxyFrame();
+        globalThis.sandstone = sandstone;
+        globalThis.main_frame = proxyFrame;
+
+        let wisp = "wss://wisp.mercurywork.shop/";
+        //let wisp = "ws://127.0.0.1:8001";
+        sandstone.libcurl.set_websocket(wisp);
+
+        function navigateUrl() {
             const uri = browserURLInput.value;
             browser.classList.add('loading-page');
             let url;
             if (uri.startsWith('pony://')) { // system uri
-                url = `programs/pony/syswindows/${uri.replaceAll('pony://','')}.html`
-            } else url = uri;
-            browserFrame.src = url;
+                //url = `/programs/pony/syswindows/${uri.replaceAll('pony://','')}.html`
+                url = uri;
+            } else if (new RegExp('^http(?:s)?').test(uri)) { // url
+                url = uri;
+            } else/* if (new RegExp('^www\.|\.[a-zA-Z]*$').test(uri))*/ { // url, no provided protocol
+                url = `http://${uri}`;
+                browserURLInput.value = url;
+            } //else { // search query
+                //url = `http://frogfind.com/?q=${uri}`;
+            //}
+            proxyFrame.navigate_to(url);
         }
-        browserURLInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') parseURL();
-        });
-        browserGoButton.addEventListener('click', parseURL);
-        browserFrame.addEventListener('load', frameLoaded);
 
-        // leaving this here just in case some stupid browser leaves this unchecked
-        browserFrame.contentWindow.addEventListener('beforeunload', frameLoading);
+        async function getPageTitle() {
+            return await proxyFrame.eval_js(`document.querySelector('title').innerHTML`);
+        }
+
+        browserURLInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') navigateUrl();
+        });
+        browserGoButton.addEventListener('click', navigateUrl);
+
+        proxyFrame.special_pages = {
+            "pony://newtab": await fetch('programs/pony/syswindows/newtab.html').then((response) => {return response.text()}),
+        };
+        proxyFrame.on_navigate = () => {
+            browser.classList.add('loading-page');
+        }
+        proxyFrame.on_load = async () => {
+            browserURLInput.value = proxyFrame.url.href;
+            browser.classList.remove('loading-page');
+            setWindowTitleByPid(`${getPageTitle()} - Internet Dasher`, browserPid);
+        }
+        proxyFrame.on_url_change = () => {
+            browserURLInput.value = proxyFrame.url.href;
+            setWindowTitleByPid(`${getPageTitle()} - Internet Dasher`, browserPid);
+        }
+        proxyFrame.iframe.classList.add('pony-content-frame');
+        browserFrameWrap.append(proxyFrame.iframe);
+        navigateUrl();
     }
 })

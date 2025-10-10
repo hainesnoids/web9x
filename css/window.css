@@ -1,7 +1,3 @@
-.window {
-    min-width: 100px;
-    min-height: 100px;
-}
 .window .resize-handle {
     position: absolute;
     width:16px;
@@ -73,7 +69,7 @@
 .window[focus=""] {
     z-index: 2147483646;
 }
-.window[state="minimized"] {
+body .main .window[state="minimized"] {
     display: none;
 }
 .window.dragging .content {
