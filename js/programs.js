@@ -18,11 +18,6 @@ let programs = {
         icon: '/programs/slope/icon.png',
         uDim: {x: 20, y: 20, w: 1280, h: 720},
     },
-    'wrstreaming': {
-        name: 'WR Streaming',
-        content: 'https://streaming.weatherranch.com/app',
-        icon: '/programs/wrstreaming/icon.png'
-    },
     'ws4k': {
         name: 'WeatherSTAR 4000',
         content: 'https://battaglia.ddns.net/twc',
@@ -30,7 +25,7 @@ let programs = {
     },
     'wscn': {
         name: 'Weatherscan',
-        content: 'https://v1.weatherscan.me/',
+        content: 'https://v1.weatherscan.net/',
         icon: '/programs/wscn/icon.png'
     },
     'easip': {
@@ -74,7 +69,7 @@ function renderDesktopIcons() {
     const desktop = document.querySelector('.desktop');
     desktop.innerHTML = '';
     for (const [key, program] of Object.entries(programs)) {
-        if (program['visible'] !== false) {
+        if (program['visible']) {
             // create desktop icon
             const desktopIcon = document.createElement('button');
             desktopIcon.classList.add('desktop-icon');
