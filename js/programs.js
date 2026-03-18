@@ -9,7 +9,7 @@ let programs = {
     },
     'jellyfin': {
         name: 'Jellyfin',
-        content: 'https://jellyfin.ws4k.net',
+        content: 'https://jellyfin.ws4k.net/web/#/selectserver',
         icon: '/programs/jellyfin/icon.png'
     },
     'slope': {
@@ -62,6 +62,11 @@ let programs = {
         icon: '/programs/pony/icon.png',
         script: 'programs/pony/script.js',
         script_is_module: true
+    },
+    'markpad': {
+        name: 'Markpad',
+        content: 'https://markpad.ws4k.net',
+        icon: '/programs/markpad/icon.svg'
     },
 }
 
