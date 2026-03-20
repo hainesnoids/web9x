@@ -63,13 +63,19 @@ let programs = {
         content: 'https://markpad.ws4k.net',
         icon: '/programs/markpad/icon.svg'
     },
+    'antonymph': {
+        name: 'Antonymph',
+        content: 'http://local/programs/antonymph/resources/index.html',
+        icon: '/programs/antonymph/icon.png',
+        script: '/programs/antonymph/script.js'
+    }
 }
 
 function renderDesktopIcons() {
     const desktop = document.querySelector('.desktop');
     desktop.innerHTML = '';
     for (const [key, program] of Object.entries(programs)) {
-        if (program['visible']) {
+        if (program['visible'] !== false) {
             // create desktop icon
             const desktopIcon = document.createElement('button');
             desktopIcon.classList.add('desktop-icon');
