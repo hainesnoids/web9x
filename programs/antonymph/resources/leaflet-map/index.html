@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="leaflet.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        .map-bounds {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #map-canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="leaflet.min.js"></script>
+    <script src="map.js"></script>
+</head>
+<body>
+    <div class="map-bounds">
+        <div id="map-canvas"></div>
+    </div>
+</body>
+</html>

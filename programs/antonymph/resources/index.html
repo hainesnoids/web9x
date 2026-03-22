@@ -950,7 +950,7 @@ Music volume <input id="volume" type="range" value="1" min="0" max="1" step="0.0
             console.warn("Using buggyCorners platformFix (firefox on macOS)");
             platformCorner = [0, 25];
         }
-        platformOffset = [paddingOffset[0] - OFF_X, paddingOffset[1] - OFF_Y];
+        //platformOffset = [paddingOffset[0] - OFF_X, paddingOffset[1] - OFF_Y];
         screenSizes.avail = availScreen;
         screenSizes.full = fullScreen;
         screenSizeHasChanged = false;
@@ -1382,7 +1382,7 @@ Music volume <input id="volume" type="range" value="1" min="0" max="1" step="0.0
         try {
             const intendedSize = [1920, 1080];
 
-            let availableSize = [screen.availWidth, screen.availHeight];
+            let availableSize = [window.parent.window.innerWidth, window.parent.window.innerHeight];
             // fails if cross-origin
             try {
                 availableSize = [
@@ -1771,6 +1771,7 @@ ${messagesHtml}
     function part1(currentBeat) {
         if (oneTime(0, currentBeat, 0))
             setBackgroundTransColor("background-color 1.5s", "#E8E9C5");
+            itIsTheFirstRun = true;
         if (oneTime(0, currentBeat, 8))
             setBackgroundTransColor("background-color 3s cubic-bezier(0,0.5,0,1)", "#174180");
 
@@ -1793,7 +1794,7 @@ ${messagesHtml}
             const currentText = [
                 "<i>antonymph</i><br>music & vocals by vylet pony<font style=\"opacity:0.1\">, crazy frog, psy</font><br>produced, mixed, & mastered by vylet pony<br>written by vylet pony, voreburger, astroeden, calamarispider, sylver stripe<br>additional arranging & recording by voreburger & astroeden",
                 "lick icon by voreburger<br>flutt-gir-shy designed by voreburger",
-                "web experience<br>produced & coded by rebane2001",
+                "web experience<br>produced & coded by rebane2001<br><br>web9x port<br>created by hainesnoids",
                 "illustrations by<br>voreburger, mataschmata, nootaz, astroeden, syrupyyyart,<br>calamarispider, nekosnicker, bunxl, chibadeer, retromochi,<br>cassettepunk, voidmoth, galaxysquid, blairvonglitter, hazelnoods<br>stereo flier, anticularpony, huffylime, fizzlesoda, opossum stuff,<br>& wutanimations",
             ][Math.floor(currentBeat/2)];
             try {
@@ -1868,7 +1869,14 @@ ${messagesHtml}
             // const currentOffset = 0;
             // 2025-07 update - change openstreetmap provider because the old one broke
             //navigatePopup(3, `https://www.openstreetmap.org/?mlat=37.6486&mlon=-122.4296#map=${Math.min(19, currentMapBeat)}/37.6486/-122.4296`, false)
-            navigatePopup(3, `https://www.openstreetbrowser.org/#roads/w515658673&map=${Math.min(19, currentMapBeat)}/37.6486/-122.4296`, false)
+            // web9x update - need to change this to leaflet due to weird iframe hash behavior
+            //navigatePopup(3, `https://www.openstreetbrowser.org/#roads/w515658673&map=${Math.min(19, currentMapBeat)}/37.6486/-122.4296`, false)
+            if (itIsTheFirstRun)
+                navigatePopup(3, `leaflet-map`, false);
+            try {
+                popups[3].document().setZoom(Math.min(19, currentMapBeat))
+            } catch(e) {}
+            //navigatePopup(3, `leaflet-map/#${Math.min(19, currentMapBeat)}`, false)
             //if (platformFixes.focusFix) popups[4]?.focus();
         }
 
@@ -3371,7 +3379,7 @@ asshole tries to shut you down, hold steady to your love for being alive`;
                 size(i, 880 + OFF_X, 220 + OFF_Y);
                 move(i, (1920-(880 + OFF_X))/2, (1080-(220 + OFF_Y))/2); /* center(i); */
             });
-            popups[2].requestAnimationFrame(()=>{});
+            //popups[2].requestAnimationFrame(()=>{});
         }
 
         if (oneTime(2, currentBeat, 107.75)) {

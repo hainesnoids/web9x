@@ -19,6 +19,7 @@ function decodeFeatures(featuresString: string) {
     return featuresObject;
 }
 
+let windowSources = {};
 
 function antonymphCreateWindow(url:string, target:string, features:string) {
     if (targetWindows[target]) {
@@ -76,6 +77,7 @@ function antonymphCreateWindow(url:string, target:string, features:string) {
             targetWindows[target].style.height = `${y}px`;
         },
         document: getDocument,
+        scrollTo: getDocument().scrollTo,
         window: getWindow,
         close: () => {antonymphRemoveWindow(target)}
     };

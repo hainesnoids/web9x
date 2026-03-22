@@ -15,6 +15,7 @@ function decodeFeatures(featuresString) {
     });
     return featuresObject;
 }
+var windowSources = {};
 function antonymphCreateWindow(url, target, features) {
     if (targetWindows[target]) {
         // change window url
@@ -72,6 +73,7 @@ function antonymphCreateWindow(url, target, features) {
             targetWindows[target].style.height = "".concat(y, "px");
         },
         document: getDocument,
+        scrollTo: getDocument().scrollTo,
         window: getWindow,
         close: function () { antonymphRemoveWindow(target); }
     };

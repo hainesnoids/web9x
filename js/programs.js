@@ -41,7 +41,8 @@ let programs = {
     },
     'winver': {
         name: 'System Information',
-        content: '<img style="margin: -8px -8px -4px" src="/res/logo.png" alt="Web9x banner"><p>Web9x<br>Build 2510.2</p><hr><p>Copyright (C) 2025 Hainesnoids<br>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br><br>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.<br><br>You should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.</p><a href="https://github.com/hainesnoids/web9x"><button>View on Github</button></a>',
+        content: '<img style="margin: -4px 0 -4px" src="/res/logo.png" alt="Web9x banner"><p>Web9x<br>Build 26.03</p><hr><p>Copyright (C) 2026 Hainesnoids<br>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br><br>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.<br><br>You should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.</p><a href="https://github.com/hainesnoids/web9x"><button>View on Github</button></a>',
+        icon: '/res/icon.png',
         uDim: {x: 100, y: 100, w: 420, h: 360},
         resizable: false,
         visible: false
