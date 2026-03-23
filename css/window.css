@@ -1,3 +1,10 @@
+.window.maximized, .window.restoring {
+    transition:
+        left .5s cubic-bezier(0.33, 1, 0.68, 1),
+        top .5s cubic-bezier(0.33, 1, 0.68, 1),
+        width .5s cubic-bezier(0.33, 1, 0.68, 1),
+        height .5s cubic-bezier(0.33, 1, 0.68, 1);
+}
 .window .resize-handle {
     position: absolute;
     width:16px;
@@ -77,8 +84,16 @@ body .main .window[state="minimized"] {
 }
 .window-transition-simulator {
     position: absolute;
-    outline: 1px dotted #000;
-    outline-offset: -4px;
+    outline: 2px dotted #444;
+    outline-offset: -1px;
+    transition:
+            left .25s linear,
+            top .25s linear,
+            width .25s linear,
+            height .25s linear;
+    display: block;
+    z-index: 1000;
+    pointer-events: none;
 }
 .window:not([focus=""]) iframe {
     pointer-events: none;

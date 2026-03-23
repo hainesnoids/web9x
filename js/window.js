@@ -178,14 +178,21 @@ function createWindow( title, content, uDim, icon, pid ) {
     });
 
     // maximize/restore button
-    function maximizeWindow() {
+    const windowTransitionTime = 500;
+    /*async*/ function maximizeWindow() {
         const mxmbtn = window.querySelector('.maximiz');
         if (mxmbtn.getAttribute('aria-label') === 'Maximize') {
+            //await windowTransitionEffect(window, 'maximize');
             mxmbtn.setAttribute('aria-label', 'Restore');
             window.classList.add('maximized');
         } else if (mxmbtn.getAttribute('aria-label') === 'Restore') {
+            //await windowTransitionEffect(window, 'restore');
             mxmbtn.setAttribute('aria-label', 'Maximize');
             window.classList.remove('maximized');
+            window.classList.add('restoring');
+            setTimeout(() => {
+                window.classList.remove('restoring');
+            },windowTransitionTime)
         }
     }
     window.querySelector('.maximiz').addEventListener("click", maximizeWindow);
@@ -243,6 +250,52 @@ function focusWindow(window) {
         }
     }
 
+}
+
+function windowTransitionEffect(window, effect) {
+    const DOMTransition = document.querySelector('.window-transition-simulator');
+
+    // sync object styles
+    function syncStyles() {
+        DOMTransition.style.left = window.style.left;
+        DOMTransition.style.top = window.style.top;
+        DOMTransition.style.width = window.style.width;
+        DOMTransition.style.height = window.style.height;
+    }
+    const desktopBounds = document.querySelector('.desktop-root').getBoundingClientRect();
+    function fillStyles() {
+        DOMTransition.style.left = '0px';
+        DOMTransition.style.top = '0px';
+        DOMTransition.style.width = `${desktopBounds.width}px`;
+        DOMTransition.style.height = `${desktopBounds.height}px`;
+    }
+
+    // choose and execute the right effect
+    switch (effect) {
+        case 'maximize':
+            DOMTransition.style.display = 'none';
+            syncStyles();
+            DOMTransition.style.display = '';
+            fillStyles();
+            break
+        case 'restore':
+            DOMTransition.style.display = 'none';
+            fillStyles();
+            DOMTransition.style.display = '';
+            syncStyles();
+            break
+        case 'minimize':
+            syncStyles();
+            break
+    }
+
+    // reset styles when transition finishes
+    setTimeout(() => {
+        DOMTransition.style.display = 'none';
+    }, transitionTime);
+
+    // return time to wait before actually moving window
+    return new Promise(resolve => setTimeout(resolve, transitionTime));
 }
 
 function minimizeWindow(window) {
@@ -319,10 +372,6 @@ function renderProcesses() {
         // final step
         tasksObject.appendChild(taskRoot);
     })
-}
-
-function windowTransitionEffect(window, effectId) {
-
 }
 
 function setWindowTitleByPid(title, pid) {

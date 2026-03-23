@@ -1,6 +1,6 @@
 document.getElementById('allalerts-form-submit').onclick = function(){
     var resultBox = document.getElementById('allalerts-results')
-    fetch(`https://easip-client.ccp.xcal.tv/eas/api/alert/active?format=json`)
+    fetch(`https://corsproxy.io/?url=https://easip-client.ccp.xcal.tv/eas/api/alert/active?format=json`)
         .then((response) => response.json())
         .then((data) => {
             let hiddenAlerts = 0;
