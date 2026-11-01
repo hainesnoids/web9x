@@ -47,7 +47,7 @@ document.querySelectorAll('.pony').forEach(async (browser) => {
         globalThis.sandstone = sandstone;
         globalThis.main_frame = proxyFrame;
 
-        let wisp = "wss://wisp.mercurywork.shop/";
+        let wisp = "wss://phonehome.ws4k.net/wisp";
         //let wisp = "ws://127.0.0.1:8001";
         sandstone.libcurl.set_websocket(wisp);
 
