@@ -1,4 +1,4 @@
-function run(programId) {
+function runOld(programId) {
     const programData = programs[programId];
     let program;
     if (programData) {
@@ -15,6 +15,36 @@ function run(programId) {
     return !!program;
 }
 
+function run(programId) {
+    function isURL() {
+        try {
+            const url = new URL(value);
+            return url.protocol === "http:" || url.protocol === "https:";
+        } catch {
+            return false;
+        }
+    }
+    if (isURL(programId)) {
+        // external
+    } else {
+        // system program
+        i=document.createElement('script');
+        // tip: we can load every script as a module then use the window constructor to add global variables
+        // new tip: we cant
+        //i.type="module";
+        i.src=`/programs/${programId}/program.js`;
+        i.setAttribute("data-for-pid", newPid + 1);
+        document.head.appendChild(i);
+        /*fetch(`/programs/${programId}/program.js`)
+            .then(async (r) => {return await r.text()})
+            .then((js) => {
+                // fuck it
+                eval(js);
+            })*/
+    }
+    return true;
+}
+
 function clock() {
     const date = new Date(Date.now());
     // const hour = ((date.getHours() - 1) % 12) + 1; for the americans out there
@@ -28,3 +58,13 @@ function clock() {
 document.addEventListener('DOMContentLoaded', () => {
     window.requestAnimationFrame(clock);
 })
+
+function loadModule(url, pid) {
+    if (!pid) return false;
+    i=document.createElement('script');
+    // tip: we can load every script as a module then use the window constructor to add global variables
+    i.src=url;
+    i.setAttribute("data-for-pid", pid);
+    document.head.appendChild(i);
+    return true;
+}

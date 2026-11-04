@@ -1,3 +1,4 @@
+(() => {
 var antonymphWindows = document.querySelectorAll('.antonymph');
 var targetSourceWindow = antonymphWindows[antonymphWindows.length - 1];
 var targetWindows = {};
@@ -74,10 +75,11 @@ function antonymphCreateWindow(url, target, features) {
         },
         document: getDocument,
         scrollTo: getDocument().scrollTo,
-        window: getWindow,
-        close: function () { antonymphRemoveWindow(target); }
+window: getWindow,
+close: function () { antonymphRemoveWindow(target); }
     };
 }
 function antonymphRemoveWindow(target) {
     targetWindows[target].remove();
 }
+})()

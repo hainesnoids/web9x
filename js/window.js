@@ -6,6 +6,7 @@
     h = height
 */
 
+
 let processes = [],
     focusOrder = [],
     newPid = -1,
@@ -335,8 +336,8 @@ function killProcess(pid) {
     if (process) {
         process.window.remove();
         processes.splice(processIndex,1);
+        document.querySelectorAll(`script[data-for-pid="${process.pid}"]`).forEach((i) => {i.remove()});
     }
-
     renderProcesses();
 }
 
