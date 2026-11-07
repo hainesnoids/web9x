@@ -5,8 +5,10 @@ Use at https://web9x.ws4k.net
 
 # For developers
 
+The root of the filesystem is at /fsroot.
+
 ## Adding new programs
-Edit `/js/programs.js`, and add a new entry to `programs`. The object's key will determine what you type in the run menu to open the program.
+uuh figure it out yourself
 
 ## tf is a uDim?
 a uDim is the way of measuring window dimensions in Web9x. See /js/index.js:1 for information.

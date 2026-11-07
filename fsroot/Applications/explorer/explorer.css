@@ -1,0 +1,55 @@
+@import url("/fsroot/System/css/win98.css");
+.directory-view {
+    padding: 6px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+
+    background-color: #fff;
+    box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+    box-sizing: border-box;
+}
+.file {
+    width: 72px;
+    height: 60px;
+    -webkit-font-smoothing:none;
+    font-family:"Pixelated MS Sans Serif",Arial, sans-serif;
+    font-size:11px;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+.file:active {
+    padding: 0;
+    box-shadow: none;
+    text-shadow: unset;
+}
+.file img {
+    width: 32px;
+    height: 32px;
+    margin: 0 0 4px;
+    pointer-events: none;
+}
+.file span {
+    width: auto;
+    text-align: center;
+    pointer-events: none;
+    padding: 0 2px;
+}
+.file:focus img {
+    filter: brightness(.5) sepia(100%) hue-rotate(180deg) saturate(8);
+}
+.file:focus span {
+    background-color: #0080cb;
+    color: #b2fcff;
+    outline: 1px dotted #000;
+}
