@@ -1,0 +1,92 @@
+@import "../../System/css/win98.css";
+
+#sdop-canvas {
+    --cur-draw: url("data:image/svg+xml;base64,PHN2ZyBpZD0ic3ZnMTEwMjQiIGhlaWdodD0iMzIiIHdpZHRoPSIzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGZpbHRlciBpZD0iZmlsdGVyNzA3OCIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KICAgIDxmZUdhdXNzaWFuQmx1ciBpZD0iZmVHYXVzc2lhbkJsdXI3MDgwIiBzdGREZXZpYXRpb249Ii42NTciLz4KICA8L2ZpbHRlcj4KICA8cGF0aCBpZD0icGF0aDc0MjgiIGQ9Im0yLjg0NCAzMC45NzZjLS41NTctLjA5OC0uOTUtLjc0LS43ODEtMS4yOGwxLjA2Mi0zLjE4OGMuMDQtLjE1LjExNi0uMjkuMjE5LS40MDdsMTIuNTk0LTEyLjYyNWExIDEgMCAwIDEgLjU5My0uMjhjLjMwNS0uMDQzLjYyNi4wNjQuODQ0LjI4bDIuMTI1IDIuMTI1Yy4zODQuMzcyLjM4NCAxLjA2NiAwIDEuNDM4bC0xMi41OTQgMTIuNjI1YTEgMSAwIDAgMSAtLjQwNi4yMTlsLTMuMTg3IDEuMDYyYTEgMSAwIDAgMSAtLjQ3LjAzMSIgZmlsdGVyPSJ1cmwoI2ZpbHRlcjcwNzgpIiBvcGFjaXR5PSIuMiIvPgogIDxwYXRoIGlkPSJwYXRoNDgwMS02LTQtOSIgZD0ibTE2LjUzMSAxMi4yYTEgMSAwIDAgMCAtLjU5My4yODJsLTEyLjU5NCAxMi42MjVhMSAxIDAgMCAwIC0uMjE5LjQwNmwtMS4wNjIgMy4xODdhMSAxIDAgMCAwIDEuMjUgMS4yNWwzLjE4Ny0xLjA2MmExIDEgMCAwIDAgLjQwNi0uMjE5bDEyLjU5NC0xMi42MjVhMSAxIDAgMCAwIDAtMS40MzdsLTIuMTI1LTIuMTI1YTEgMSAwIDAgMCAtLjg0NC0uMjgyIiBmaWxsPSIjZmZmIi8+CiAgPHBhdGggaWQ9InBhdGg0ODAxLTYtNCIgZD0ibTE2LjY1NiAxMy4yLTEyLjU5MyAxMi42MjUtMS4wNjMgMy4xODggMy4xODgtMS4wNjMgMTIuNTkyLTEyLjYyNXptLjAzMSAxLjQzOC42ODguNjg3LTEuMzEzIDEuMzEzLS42ODctLjY4OHoiLz4KICA8cGF0aCBpZD0iaG90c3BvdCIgZD0ibTI5LTRoMXYxaC0xeiIgZGlzcGxheT0ibm9uZSIgZmlsbD0iIzMzMyIgc3Ryb2tlLXdpZHRoPSIxLjA3NTY4IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCkiLz4KPC9zdmc+Cg==") 3 29, auto;
+    --cur-erase: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgaWQ9InN2ZzExMDI0IgogICBoZWlnaHQ9IjMyIgogICB3aWR0aD0iMzIiCiAgIHZlcnNpb249IjEuMSIKICAgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcwogICAgIGlkPSJkZWZzMSI+PHN0eWxlCiAgICAgICB0eXBlPSJ0ZXh0L2NzcyIKICAgICAgIGlkPSJjdXJyZW50LWNvbG9yLXNjaGVtZSI+CiAgICAgIC5Db2xvclNjaGVtZS1UZXh0IHsKICAgICAgICBjb2xvcjojMjMyNjI5OwogICAgICB9CiAgICAgIDwvc3R5bGU+PHN0eWxlCiAgICAgICB0eXBlPSJ0ZXh0L2NzcyIKICAgICAgIGlkPSJjdXJyZW50LWNvbG9yLXNjaGVtZS03Ij4KICAgICAgLkNvbG9yU2NoZW1lLVRleHQgewogICAgICAgIGNvbG9yOiMyMzI2Mjk7CiAgICAgIH0KICAgICAgPC9zdHlsZT48L2RlZnM+PGZpbHRlcgogICAgIGlkPSJmaWx0ZXI3MDc4IgogICAgIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiIKICAgICB4PSItMC4wNzg4NDE1MiIKICAgICB5PSItMC4wNzg4NDE1MjIiCiAgICAgd2lkdGg9IjEuMTU3NjgzIgogICAgIGhlaWdodD0iMS4xNTc2ODMiPjxmZUdhdXNzaWFuQmx1cgogICAgICAgaWQ9ImZlR2F1c3NpYW5CbHVyNzA4MCIKICAgICAgIHN0ZERldmlhdGlvbj0iLjY1NyIgLz48L2ZpbHRlcj48cGF0aAogICAgIGlkPSJob3RzcG90IgogICAgIGQ9Im0gNiwyNyB2IDEgSCA1IHYgLTEgeiIKICAgICBkaXNwbGF5PSJub25lIgogICAgIGZpbGw9IiMzMzMzMzMiCiAgICAgc3Ryb2tlLXdpZHRoPSIxLjA3NTY4IiAvPjxwYXRoCiAgICAgc3R5bGU9ImNvbG9yOiMyMzI2Mjk7b3BhY2l0eTowLjI7ZmlsbDojMDAwMDAwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZS1saW5lam9pbjpyb3VuZDtwYWludC1vcmRlcjpzdHJva2UgZmlsbCBtYXJrZXJzIgogICAgIGQ9Ik0gMTQuOTI5Njg4LDExLjc0NzU3NiA4LjQ2NzEwMTYsMTguMjA4ODMgMy41NjIyOTIxLDIzLjExNDM5IDEuODM3ODkwNiwyNC44Mzc0MiBjIC0wLjM5MDM2ODEsMC4zOTA1MyAtMC4zOTAzNjgxLDEuMDIzNTMyIDAsMS40MTQwNjIgbCA0LjkxMDE1NjMsNC45MTAxNTYgYyAwLjM5MDUyOTksMC4zOTAzNjggMS4wMjM1MzI2LDAuMzkwMzY4IDEuNDE0MDYyNSwwIGwgMS44NDk0NzI2LC0xLjg1MDk0NSAzLjc5NTM3NiwtMy43OTQzMjMgNy40NDQ5OTUsLTcuNDQ2NTI5IGMgMC4zOTAzNjgsLTAuMzkwNTMgMC4zOTAzNjgsLTEuMDIzNTMyIDAsLTEuNDE0MDYyIEwgMTYuMzQzNzUsMTEuNzQ3NTc2IGMgLTAuMzkwNTMsLTAuMzkwMzY4IC0xLjAyMzUzMiwtMC4zOTAzNjggLTEuNDE0MDYyLDAgeiIKICAgICBpZD0icGF0aDYiCiAgICAgZmlsdGVyPSJ1cmwoI2ZpbHRlcjcwNzgpIiAvPjxwYXRoCiAgICAgc3R5bGU9ImNvbG9yOiMyMzI2Mjk7ZmlsbDojZmZmZmZmO3N0cm9rZS1saW5lam9pbjpyb3VuZDtwYWludC1vcmRlcjpzdHJva2UgZmlsbCBtYXJrZXJzIgogICAgIGQ9Im0gMTQuOTI5Njg4LDEwLjc0ODA0NyAtNi40NjI1ODY0LDYuNDYxMjU0IC00LjkwNDgwOTUsNC45MDU1NiAtMS43MjQ0MDE1LDEuNzIzMDMgYyAtMC4zOTAzNjgxLDAuMzkwNTMgLTAuMzkwMzY4MSwxLjAyMzUzMiAwLDEuNDE0MDYyIGwgNC45MTAxNTYzLDQuOTEwMTU2IGMgMC4zOTA1Mjk5LDAuMzkwMzY4IDEuMDIzNTMyNiwwLjM5MDM2OCAxLjQxNDA2MjUsMCBsIDEuODQ5NDcyNiwtMS44NTA5NDUgMy43OTUzNzYsLTMuNzk0MzIzIDcuNDQ0OTk1LC03LjQ0NjUyOSBjIDAuMzkwMzY4LC0wLjM5MDUzIDAuMzkwMzY4LC0xLjAyMzUzMiAwLC0xLjQxNDA2MiBMIDE2LjM0Mzc1LDEwLjc0ODA0NyBjIC0wLjM5MDUzLC0wLjM5MDM2OCAtMS4wMjM1MzIsLTAuMzkwMzY4IC0xLjQxNDA2MiwwIHoiCiAgICAgaWQ9InBhdGgxIiAvPjxwYXRoCiAgICAgc3R5bGU9ImNvbG9yOiMyMzI2Mjk7ZGlzcGxheTppbmxpbmU7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3BhaW50LW9yZGVyOnN0cm9rZSBmaWxsIG1hcmtlcnMiCiAgICAgZD0iTSAxNS42MzYzNjQsMTEuNDU0NTQ1IDYuMTU2OTA5LDIwLjkzNCAxMS4wNjYsMjUuODQzMDkgMjAuNTQ1NDU1LDE2LjM2MzYzNiBaIE0gNS4wMDAwMDAxLDIyLjA5MDkwOSAyLjU0NTQ1NDYsMjQuNTQ1NDU0IDcuNDU0NTQ1NCwyOS40NTQ1NDUgOS45MDkwOTEsMjcgWiIKICAgICBpZD0icGF0aDIiIC8+PC9zdmc+Cg==") 3 29, auto;
+    cursor: var(--cur-draw);
+    image-rendering: crisp-edges;
+}
+
+#sdop-canvas.sdop-mode-erase {
+    cursor: var(--cur-erase);
+}
+
+#sdop-controls {
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    background: silver;
+    width: 100%;
+}
+
+.sdop-big-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.sdop-tools-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin: 2.5px 0;
+}
+
+#sdop-width-slider {
+    border-radius: 12px;
+    padding: 0;
+    margin: 0;
+    width: 170px;
+}
+
+.sdop-width-label {
+    margin: 0 0 0 5px;
+    width: 32px;
+    text-align: left;
+    color: black;
+}
+
+.sdop-color-selector {
+
+    flex-wrap: wrap;
+    height: 32px;
+}
+
+.sdop-color-button {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+    min-height: 0;
+    box-shadow: inset -1px -1px #fff,inset 1px 1px grey,inset -2px -2px #dfdfdf,inset 2px 2px #0a0a0a;
+    /* margin: 0 2px; */
+}
+
+.sdop-mode-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: left;
+    align-items: center;
+    margin: 2.5px 0;
+}
+
+.sdop-tools-button {
+    margin: 0 2px;
+    /* border: 1px solid gray; */
+    border: 0;
+    background-color: lightgray;
+    color: black;
+    border-radius: 4px;
+    padding: 2px 5px;
+    width: 100%;
+}
+
+.sdop-tools-active-button  {
+    background-color: #3ba4e5;
+    color: white;
+}

@@ -7,8 +7,8 @@
 }*/
 .window .resize-handle {
     position: absolute;
-    width:16px;
-    height:16px;
+    width:8px;
+    height:8px;
     z-index:4;
     background:none;
     border:none;
@@ -22,46 +22,46 @@
 .window .resize-handle-n {
     cursor: ns-resize;
     left: 0;
-    top: -16px;
+    top: -8px;
     width: 100%;
 }
 .window .resize-handle-ne {
     cursor: nesw-resize;
-    right: -16px;
-    top: -16px;
+    right: -8px;
+    top: -8px;
 }
 .window .resize-handle-e {
     cursor: ew-resize;
-    right: -16px;
+    right: -8px;
     top: 0;
     height: 100%;
 }
 .window .resize-handle-se {
     cursor: nwse-resize;
-    right: -16px;
-    bottom: -16px;
+    right: -8px;
+    bottom: -8px;
 }
 .window .resize-handle-s {
     cursor: ns-resize;
     left: 0;
-    bottom: -16px;
+    bottom: -8px;
     width: 100%;
 }
 .window .resize-handle-sw {
     cursor: nesw-resize;
-    left: -16px;
-    bottom: -16px;
+    left: -8px;
+    bottom: -8px;
 }
 .window .resize-handle-w {
     cursor: ew-resize;
-    left: -16px;
+    left: -8px;
     top: 0;
     height: 100%;
 }
 .window .resize-handle-nw {
     cursor: nwse-resize;
-    left: -16px;
-    top: -16px;
+    left: -8px;
+    top: -8px;
 }
 .window.maximized {
     width: 100% !important;
@@ -79,8 +79,9 @@
 body .main .window[state="minimized"] {
     display: none;
 }
-.window.dragging .content {
-    pointer-events: none;
+.window.dragging .content,
+.window.dragging .content * {
+    pointer-events: none !important;
 }
 .window-transition-simulator {
     position: absolute;

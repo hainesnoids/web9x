@@ -16,6 +16,10 @@ let programs = {
         name: 'Markpad',
         icon: '/fsroot/Applications/markpad/icon.ico'
     },
+    'paint': {
+        name: 'Paint',
+        icon: '/fsroot/Applications/paint/icon.ico'
+    },
     'antonymph': {
         name: 'Antonymph',
         icon: '/fsroot/Applications/antonymph/icon.png'
